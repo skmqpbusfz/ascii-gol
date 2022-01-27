@@ -66,10 +66,34 @@ void update_frame(char frame[])
 
 void initialize(char frame[])
 {
-  const int a = 10 * ws_col + ws_col / 2;
-  frame[a] = cell_char;
-  frame[a + 1] = cell_char;
-  frame[a + 2] = cell_char;
+  // block
+  frame[2 *ws_col + 6] = cell_char;
+  frame[2 *ws_col + 7] = cell_char;
+  frame[3 * ws_col + 6] = cell_char;
+  frame[3 * ws_col + 7] = cell_char;
+
+  // blinker
+  const int ba = 10 * ws_col + ws_col / 2;
+  frame[ba] = cell_char;
+  frame[ba + 1] = cell_char;
+  frame[ba + 2] = cell_char;
+
+  // toad
+  const int ta = 15 * ws_col + 20;
+  frame[ta] = cell_char;
+  frame[ta + 1] = cell_char;
+  frame[ta + 2] = cell_char;
+  frame[ws_col + ta + 1] = cell_char;
+  frame[ws_col + ta + 2] = cell_char;
+  frame[ws_col + ta + 3] = cell_char;
+
+  // glider
+  const int ga = 5 * ws_col + 8;
+  frame[ga + 1] = cell_char;
+  frame[ws_col + ga + 2] = cell_char;
+  frame[2 * ws_col + ga] = cell_char;
+  frame[2 * ws_col + ga + 1] = cell_char;
+  frame[2 * ws_col + ga + 2] = cell_char;
 }
 
 int main(int argc, char *argv[])
