@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
+#include <time.h>
 #include <unistd.h>
 
 #define TWO_PI 6.28
@@ -98,6 +99,9 @@ void initialize(char frame[])
 
 int main(int argc, char *argv[])
 {
+  struct timespec ts;
+  ts.tv_sec = 0;
+  ts.tv_nsec = 2E8;
   struct winsize w;
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   ws_col = w.ws_col;
@@ -110,7 +114,7 @@ int main(int argc, char *argv[])
   for (;;) {
     draw_frame(frame);
     update_frame(&frame);
-    sleep(1);
+    nanosleep(&ts, &ts);
   }
   return 0;
 }
