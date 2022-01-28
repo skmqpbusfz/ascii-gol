@@ -95,6 +95,45 @@ void initialize(char frame[])
   frame[2 * ws_col + ga] = cell_char;
   frame[2 * ws_col + ga + 1] = cell_char;
   frame[2 * ws_col + ga + 2] = cell_char;
+
+  // gosper glider gun
+  const int gg = 10 * ws_col + 60;
+  frame[gg + 24] = cell_char;
+  frame[ws_col + gg + 22] = cell_char;
+  frame[ws_col + gg + 24] = cell_char;
+  frame[2 * ws_col + gg + 12] = cell_char;
+  frame[2 * ws_col + gg + 13] = cell_char;
+  frame[2 * ws_col + gg + 20] = cell_char;
+  frame[2 * ws_col + gg + 21] = cell_char;
+  frame[2 * ws_col + gg + 34] = cell_char;
+  frame[2 * ws_col + gg + 35] = cell_char;
+  frame[3 * ws_col + gg + 11] = cell_char;
+  frame[3 * ws_col + gg + 15] = cell_char;
+  frame[3 * ws_col + gg + 20] = cell_char;
+  frame[3 * ws_col + gg + 21] = cell_char;
+  frame[3 * ws_col + gg + 34] = cell_char;
+  frame[3 * ws_col + gg + 35] = cell_char;
+  frame[4 * ws_col + gg] = cell_char;
+  frame[4 * ws_col + gg + 1] = cell_char;
+  frame[4 * ws_col + gg + 10] = cell_char;
+  frame[4 * ws_col + gg + 16] = cell_char;
+  frame[4 * ws_col + gg + 20] = cell_char;
+  frame[4 * ws_col + gg + 21] = cell_char;
+  frame[5 * ws_col + gg] = cell_char;
+  frame[5 * ws_col + gg + 1] = cell_char;
+  frame[5 * ws_col + gg + 10] = cell_char;
+  frame[5 * ws_col + gg + 14] = cell_char;
+  frame[5 * ws_col + gg + 16] = cell_char;
+  frame[5 * ws_col + gg + 17] = cell_char;
+  frame[5 * ws_col + gg + 22] = cell_char;
+  frame[5 * ws_col + gg + 24] = cell_char;
+  frame[6 * ws_col + gg + 10] = cell_char;
+  frame[6 * ws_col + gg + 16] = cell_char;
+  frame[6 * ws_col + gg + 24] = cell_char;
+  frame[7 * ws_col + gg + 11] = cell_char;
+  frame[7 * ws_col + gg + 15] = cell_char;
+  frame[8 * ws_col + gg + 12] = cell_char;
+  frame[8 * ws_col + gg + 13] = cell_char;
 }
 
 int main(int argc, char *argv[])
