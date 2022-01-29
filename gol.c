@@ -163,7 +163,8 @@ int main(int argc, char *argv[])
   struct winsize w;
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   ws_col = w.ws_col;
-  ws_row = w.ws_row;
+  // subtracting by one because last line is empty because of cursor
+  ws_row = w.ws_row - 1;
   const int buffer_size = ws_col * ws_row;
   char frame[buffer_size];
   clear_screen();
