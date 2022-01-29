@@ -174,10 +174,10 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], "-r") == 0)
       init = &random_init;
   }
-  (*init)(&frame);
+  (*init)(frame);
   for (;;) {
     draw_frame(frame);
-    update_frame(&frame);
+    update_frame(frame);
     nanosleep(&ts, &ts);
   }
   return 0;
