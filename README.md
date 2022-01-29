@@ -22,12 +22,12 @@
 
 Based on rules as stated in [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-As of now only has a single scenario with a blinker, a block, a toad and a glider.
-
 ## Build
 
 `gcc -o gol gol.c`
 
 ## Run
 
-* Run `./gol`
+* For an example scenario with a blinker, a block, a toad and a glider run `./gol`
+
+* For a randomized starting scenario run `./gol -r`

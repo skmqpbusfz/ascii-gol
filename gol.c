@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/ioctl.h>
 #include <string.h>
 #include <time.h>
@@ -66,7 +67,21 @@ void update_frame(char frame[])
   }
 }
 
-void initialize(char frame[])
+void random_init(char frame[])
+{
+  const int alive_theshold = 6;
+  const int frame_size = ws_col * ws_row;
+  for (int i = 0; i < frame_size; ++i) {
+    char c;
+    if (rand() % 10 >= alive_theshold)
+      c = cell_char;
+    else
+      c = ' ';
+    frame[i] = c;
+  }
+}
+
+void static_init(char frame[])
 {
   // block
   frame[2 *ws_col + 6] = cell_char;
@@ -141,6 +156,7 @@ void initialize(char frame[])
 
 int main(int argc, char *argv[])
 {
+  srand(time(NULL));
   struct timespec ts;
   ts.tv_sec = 0;
   ts.tv_nsec = 2E8;
@@ -152,7 +168,12 @@ int main(int argc, char *argv[])
   char frame[buffer_size];
   clear_screen();
   memset(frame, ' ', buffer_size);
-  initialize(&frame);
+  void (*init)(char[]) = &static_init;
+  if (argc == 2) {
+    if (strcmp(argv[1], "-r") == 0)
+      init = &random_init;
+  }
+  (*init)(&frame);
   for (;;) {
     draw_frame(frame);
     update_frame(&frame);
